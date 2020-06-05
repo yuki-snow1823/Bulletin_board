@@ -1,0 +1,2 @@
+class UserCommentRelation < ApplicationRecord
+end
