@@ -4,6 +4,11 @@ class PostsController < ApplicationController
   end
 
   def show
+    @post = Post.find(params[:id])
+    @user = @post.user
+    # @posts = Post.new
+    # @post_comment = PostComment.new
+    @value = ""
   end
 
   def create
