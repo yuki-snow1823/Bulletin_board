@@ -48,7 +48,6 @@
 
 <h2>投稿一覧</h2>
 <% @posts.each do |post| %>
-<%= post.user.name %>
 <%= link_to post.title, post %>
 <%= truncate(post.context, length: 20) do %>
   <%= link_to "続きを読む", post %>
