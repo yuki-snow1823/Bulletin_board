@@ -6,3 +6,16 @@
 本文：<%= @post.context %>
 
 <%#= ここにコメントをレスとして追加 %>
+
+<%= form_for [@post, @comment] do |f| %>
+  <%= f.text_field :context %>
+  <br>
+  <%= f.submit 'コメントする' %>
+<% end %>
+
+<% @comments.each do |comment| %>
+  <div>
+    <%= comment.context %>
+    ID:<%= @post.user.id %>
+  </div>
+<% end %>

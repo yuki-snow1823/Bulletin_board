@@ -7,8 +7,8 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @user = @post.user
-    # @posts = Post.new
-    # @post_comment = PostComment.new
+    @comment = Comment.new
+    @comments = @post.comments
     @value = ""
   end
 
