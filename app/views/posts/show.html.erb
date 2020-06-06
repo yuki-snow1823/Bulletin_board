@@ -1,11 +1,15 @@
 <h1>Posts#show</h1>
 <p>Find me in app/views/posts/show.html.erb</p>
 
-投稿者：<%= @user.name %>
+投稿者：名無しさん
 タイトル：<%= @post.title %>
 本文：<%= @post.context %>
 <% @post.categories.each do |category| %>
 <%= category.name %>
+<% end %>
+
+<% if @user == current_user %>
+<%= link_to "削除する",@post, method: :delete, data: {confirm: "本当に削除してもよろしいですか？"} %>
 <% end %>
 
 <%#= ここにコメントをレスとして追加 %>
@@ -22,3 +26,5 @@
     ID:<%= @post.user.id %>
   </div>
 <% end %>
+
+<%= link_to "一覧ページへ戻る", posts_path %>
