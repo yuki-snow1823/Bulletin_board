@@ -22,6 +22,14 @@
   <%= f.text_area :context %>
 </div>
 
+<%= f.label :category, 'カテゴリ' %>
+<%= f.collection_check_boxes(:category_ids, Category.all, :id, :name) do |category| %>
+<%= category.label do %>
+<%= category.check_box %>
+<%= category.text %>
+<% end %>
+<% end %>
+
 <div class="submit">
   <%= f.submit %>
 </div>
@@ -33,3 +41,4 @@
 <%= link_to post.title, post %>
 <%= post.context %></td>
 <% end %>
+

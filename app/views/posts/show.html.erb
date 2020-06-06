@@ -4,6 +4,9 @@
 投稿者：<%= @user.name %>
 タイトル：<%= @post.title %>
 本文：<%= @post.context %>
+<% @post.categories.each do |category| %>
+<%= category.name %>
+<% end %>
 
 <%#= ここにコメントをレスとして追加 %>
 
