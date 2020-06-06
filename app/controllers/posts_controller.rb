@@ -20,7 +20,10 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to @post, notice: "successfully created post!"
     else
+      @post = Post.new
       @posts = Post.all
+      @q = Post.ransack(params[:q])
+      @posts = @q.result(distinct: true)
       render action: :index
     end
   end
