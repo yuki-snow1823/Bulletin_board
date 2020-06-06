@@ -17,6 +17,8 @@
   <%= f.text_field :title %>
 </div>
 
+<br>
+
 <div class="field">
   <%= f.label :body %>
   <%= f.text_area :context %>
@@ -35,10 +37,16 @@
 </div>
 <% end %>
 
+<h2>検索</h2>
+<%= search_form_for @q do |f| %>
+<%= f.label :context, "Keyword" %>
+<%= f.search_field :context_cont %>
+<%= f.submit "検索" %>
+<% end %>
+
 <h2>投稿一覧</h2>
 <% @posts.each do |post| %>
 <%= post.user.name %>
 <%= link_to post.title, post %>
 <%= post.context %></td>
 <% end %>
-
