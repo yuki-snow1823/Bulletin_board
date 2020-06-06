@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   def index
     @post = Post.new
+    
     @posts = Post.all
   end
 
@@ -26,6 +27,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-  	params.require(:post).permit(:title, :context)
+  	params.require(:post).permit(:title, :context, category_ids: [])
   end
 end
