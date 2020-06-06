@@ -4,8 +4,12 @@
 投稿者：名無しさん
 タイトル：<%= @post.title %>
 本文：<%= @post.context %>
-<% @post.categories.each do |category| %>
-<%= category.name %>
+<% if @post.categories.present? %>
+  <% @post.categories.each do |category| %>
+    <%= category.name %>
+  <% end %>
+<% else%>
+  <span>カテゴリー未選択</span>
 <% end %>
 
 <% if @user == current_user %>
