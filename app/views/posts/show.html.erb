@@ -8,6 +8,10 @@
 <%= category.name %>
 <% end %>
 
+<% if @user == current_user %>
+<%= link_to "削除する",@post, method: :delete, data: {confirm: "本当に削除してもよろしいですか？"} %>
+<% end %>
+
 <%#= ここにコメントをレスとして追加 %>
 
 <%= form_for [@post, @comment] do |f| %>
