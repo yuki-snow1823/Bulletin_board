@@ -14,3 +14,9 @@
  *= require_self
  */
 @import "bootstrap";
+
+body {
+  background-image: url("/images/ba.gif");
+  background-repeat: repeat;
+  background-attachment: fixed;
+}
