@@ -7,3 +7,5 @@ ja:
       post:
         title: スレタイ
         context: 内容
+      comment:
+        context: 内容
