@@ -18,7 +18,7 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user_id = current_user.id
     if @post.save
-      redirect_to @post, notice: "successfully created post!"
+      redirect_to @post, notice: "スレッドを投稿しました。"
     else
       @posts = Post.all
       @q = Post.ransack(params[:q])
@@ -30,7 +30,7 @@ class PostsController < ApplicationController
   def destroy
   	@post = Post.find(params[:id])
   	@post.destroy
-  	redirect_to posts_path, notice: "successfully delete post!"
+  	redirect_to posts_path, notice: "スレッドを削除しました。"
 	end
 
   private
