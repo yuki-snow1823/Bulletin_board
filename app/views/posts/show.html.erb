@@ -1,6 +1,15 @@
 <h1>Posts#show</h1>
 <p>Find me in app/views/posts/show.html.erb</p>
 
+<% if @comment.errors.any? %>
+<h3><%= @comment.errors.count %>errors prohibited this comment from being saved:</h3>
+<% @comment.errors.full_messages.each do |message| %>
+<ul>
+  <li><%= message %></li>
+</ul>
+<% end %>
+<% end %>
+
 投稿者：名無しさん
 タイトル：<%= @post.title %>
 本文：<%= @post.context %>
