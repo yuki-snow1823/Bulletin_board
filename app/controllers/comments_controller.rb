@@ -4,8 +4,14 @@ class CommentsController < ApplicationController
     @comment = Comment.new(post_comment_params)
     @comment.user_id = current_user.id
     @comment.post_id = @post.id
-    @comment.save
-    redirect_back(fallback_location: root_path)
+    if @comment.save
+      redirect_back(fallback_location: root_path)
+    else
+      @post = Post.find(params[:post_id])
+      @user = @post.user
+      @comments = @post.comments
+      render "posts/show"
+    end
   end
 
   private
