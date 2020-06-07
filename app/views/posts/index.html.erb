@@ -1,55 +1,76 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
-
-<%= notice %>
-
-<h2>新規投稿</h2>
-<% if @post.errors.any? %>
-<h3><%= @post.errors.count %>errors prohibited this post from being saved:</h3>
-<% @post.errors.full_messages.each do |message| %>
-<ul>
-  <li><%= message %></li>
-</ul>
-<% end %>
-<% end %>
-
-<%= form_for(@post) do |f| %>
-<div class="field">
-  <%= f.label :title %>
-  <%= f.text_field :title %>
+<div class="container col-lg-10 text-right">
+  <span>スレッド・レス内検索</span>
+  <%= search_form_for @q do |f| %>
+  <%= f.search_field :title_or_context_cont ,class:"mb-2"%>
+  <%= f.submit "検索" %>
+  <% end %>
 </div>
 
-<br>
-
-<div class="field">
-  <%= f.label :body %>
-  <%= f.text_area :context %>
+<div class="container col-lg-10">
+  <span class="bg-secondary text-white"><%= notice %></span>
 </div>
 
-<%= f.label :category, 'カテゴリ' %>
-<%= f.collection_check_boxes(:category_ids, Category.all, :id, :name) do |category| %>
-<%= category.label do %>
-<%= category.check_box %>
-<%= category.text %>
-<% end %>
-<% end %>
 
-<div class="submit">
-  <%= f.submit %>
+  <% if @post.errors.any? %>
+<div class="container col-lg-10 bg-secondary text-white">
+  <span><%= @post.errors.count %>個のエラーがあったため、スレッドが投稿できません。</span>
+  <% @post.errors.full_messages.each do |message| %>
+  <ul class="m-1">
+    <li class="m-1"><%= message %></li>
+  </ul>
+  <% end %>
+  <% end %>
 </div>
-<% end %>
 
-<h2>検索</h2>
-<%= search_form_for @q do |f| %>
-<%= f.label :title_or_context, "スレタイ/レス" %>
-<%= f.search_field :title_or_context_cont %>
-<%= f.submit "検索" %>
-<% end %>
+<div class="container col-lg-10">
+  <div class="row">
+    <% @posts.each do |post| %>
+    <div class="col card mb-2 col-lg-12 thred">
+      <h4 class="pt-2">
+        <%= link_to post.title, post, class: "text-danger font-weight-bold ml-1" %>
+      </h4>
+      <div class="ml-2 mb-2">
+        <p>
+          <span class="text-success font-weight-bold">名無しさん@プログラミング大好き</span>
+          <span class="created-time"><%= post.created_at.strftime("%Y-%m-%d %H:%M") %></span>
+          <span class="total-comment">総レス数：<%= post.comments.all.count + 1 %>Res</span>
+        </p>
+        <%= truncate(post.context, length: 200) do %>
+        <%= link_to "続きを読む", post %>
+        <% end %>
+      </div>
+    </div>
+    <% end %>
+    <!--
+    <div class="col col-lg-2">掲示板の紹介</div>
+    <div class="col col-lg-2">カテゴリの紹介</div>
+    -->
+  </div>
+</div>
 
-<h2>投稿一覧</h2>
-<% @posts.each do |post| %>
-<%= link_to post.title, post %>
-<%= truncate(post.context, length: 20) do %>
-  <%= link_to "続きを読む", post %>
-<% end %>
-<% end %>
+
+<div class="container card new-thred col-lg-10">
+  <%= form_for(@post) do |f| %>
+  <div class="mt-2">
+    <%= f.submit "新規スレッド作成", class: "btn btn-primary" %>
+  </div>
+  <div class="row ml-4 mt-2">
+    <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name) do |category| %>
+    <%= category.label do %>
+    <%= category.check_box %>
+    <%= category.text %>
+    <% end %>
+    <% end %>
+  </div>
+
+  <div class="row m-2 col-lg-6">
+    <p class="mb-0">スレッドタイトル</p>
+    <%= f.text_field :title,  size: "50x10", class: "title" %>
+  </div>
+
+  <div class="row m-2 col-lg-8">
+    <%= f.text_area :context,  size: "90x15", class: "context" %>
+  </div>
+
+  <% end %>
+</div>
