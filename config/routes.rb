@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   resources :posts do
     resources :comments, only: [:create]
   end
+  # コメント投稿エラー時に更新してもルーティングエラーにさせないために記載しています。
+  get '/posts/:id/comments', to: 'posts#show'
 end
