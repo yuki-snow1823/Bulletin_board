@@ -1,8 +1,8 @@
 <div class="container col-lg-10 text-right">
   <span>スレッド・レス内検索</span>
   <%= search_form_for @q do |f| %>
-  <%= f.search_field :title_or_context_cont ,class:"mb-2"%>
-  <%= f.submit "検索" %>
+    <%= f.text_field :title_or_context_cont ,class:"mb-2 pb-2", size: "20×80"%>
+    <%= f.submit "検索" ,class:"btn btn-light" %>
   <% end %>
 </div>
 
