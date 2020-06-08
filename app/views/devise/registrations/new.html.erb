@@ -1,34 +1,33 @@
-<h2>Sign up</h2>
+<div class="container col-lg-5 text-center card bg-secondary mt-5">
+<h2 class="mt-3 text-success bg-light w-50 mx-auto">新規登録</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 <%= render "devise/shared/error_messages", resource: resource %>
 
 <div class="field">
-  <%= f.label :name %><br />
-  <%= f.text_field :name, autofocus: true, autocomplete: "name"  %>
+  <p class="text-white mb-0 mt-1">名前（投稿には表示されません）</p>
+  <%= f.text_field :name, autofocus: true, size: "40x10" ,autocomplete: "name"  %>
 </div>
 
 <div class="field">
-  <%= f.label :email %><br />
-  <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <p class="text-white mb-0 mt-2">Email</p>
+  <%= f.email_field :email, autofocus: true, size: "40x10", autocomplete: "email" %>
 </div>
 
 <div class="field">
-  <%= f.label :password %>
-  <% if @minimum_password_length %>
-  <em>(<%= @minimum_password_length %> characters minimum)</em>
-  <% end %><br />
-  <%= f.password_field :password, autocomplete: "new-password" %>
+  <p class="text-white mb-0 mt-2">パスワード（６文字以上）</p>
+  <%= f.password_field :password,size: "40x10", autocomplete: "new-password" %>
 </div>
 
-<div class="field">
-  <%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+<div class="field ">
+  <p class="text-white mb-0 mt-2">パスワード確認</p>
+  <%= f.password_field :password_confirmation,size: "40x10", autocomplete: "new-password" %>
 </div>
 
 <div class="actions">
-  <%= f.submit "Sign up" %>
+  <%= f.submit "新規登録" ,class:"btn btn-success mt-3 mb-2" %>
 </div>
 <% end %>
 
 <%= render "devise/shared/links" %>
+</div>
