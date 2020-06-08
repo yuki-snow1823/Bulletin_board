@@ -1,43 +1,70 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+<div class="container col-lg-10">
+  <span class="bg-secondary text-white"><%= notice %></span>
+</div>
 
 <% if @comment.errors.any? %>
-<h3><%= @comment.errors.count %>errors prohibited this comment from being saved:</h3>
-<% @comment.errors.full_messages.each do |message| %>
-<ul>
-  <li><%= message %></li>
-</ul>
-<% end %>
-<% end %>
-
-投稿者：名無しさん
-タイトル：<%= @post.title %>
-本文：<%= @post.context %>
-<% if @post.categories.present? %>
-  <% @post.categories.each do |category| %>
-    <%= category.name %>
+<div class="container col-lg-10 bg-secondary text-white">
+  <span><%= @comment.errors.count %>個のエラーがあったため、レスが投稿できません。</span>
+  <% @comment.errors.full_messages.each do |message| %>
+  <ul class="m-1">
+    <li class="m-1"><%= message %></li>
+  </ul>
   <% end %>
-<% else%>
-  <span>カテゴリー未選択</span>
-<% end %>
+  <% end %>
+</div>
 
-<% if @user == current_user %>
-<%= link_to "削除する",@post, method: :delete, data: {confirm: "本当に削除してもよろしいですか？"} %>
-<% end %>
+<div class="container mt-3 col-lg-10 ">
+  <div class="row">
+    <div class="col card mb-2 col-lg-12 thred">
+      <h3 class="text-danger font-weight-bold ml-1 mt-2"><%= @post.title %>
+        <% if @user == current_user %>
+        <span class="btn btn-warning col-lg-2 col-md-2">
+          <%= link_to "削除する",@post, method: :delete, 
+          class: "delete-btn", data: {confirm: "本当に削除してもよろしいですか？"} %>
+        </span>
+        <% end %>
+      </h3>
 
-<%#= ここにコメントをレスとして追加 %>
-
-<%= form_for [@post, @comment] do |f| %>
-  <%= f.text_field :context %>
-  <br>
-  <%= f.submit 'コメントする' %>
-<% end %>
-
-<% @comments.each do |comment| %>
-  <div>
-    <%= comment.context %>
-    ID:<%= @post.user.id %>
+      <p>
+        <span class="text-success font-weight-bold">名無しさん@プログラミング大好き</span>
+        <span class="created-time"><%= @post.created_at.strftime("%Y-%m-%d %H:%M") %></span>
+        <span> ID:<%= @post.user.id %></span>
+        <% if @post.categories.present? %>
+        <% @post.categories.each do |category| %>
+        <span class="total-comment"><%= category.name %></span>
+        <% end %>
+        <% else%>
+        <span class="total-comment">カテゴリー未選択</span>
+        <% end %>
+      </p>
+      <p><%= @post.context %></p>
+    </div>
   </div>
-<% end %>
+</div>
 
-<%= link_to "一覧ページへ戻る", posts_path %>
+<div class="container col-lg-10">
+  <% @comments.each do |comment| %>
+  <div class="row">
+    <div class="col card mb-2 col-lg-12 thred">
+      <p class="mb-1">
+        <span class="text-success font-weight-bold">名無しさん@プログラミング大好き</span>
+        <span class="created-time"><%= comment.created_at.strftime("%Y-%m-%d %H:%M") %></span>
+        <span> ID:<%= @post.user.id %></span>
+      </p>
+      <p class="mb-2"><%= comment.context %></p>
+    </div>
+  </div>
+  <% end %>
+</div>
+
+<div class="container col-lg-10 bg-secondary">
+  <%= form_for [@post, @comment] do |f| %>
+  <div class="row">
+    <%= f.submit '書き込む', class: "btn btn-primary col-lg-2 col-md-2 col-sm-2 col-xs-2 m-2" %>
+    <%= link_to "一覧ページへ戻る", posts_path, class: "btn btn-success m-2" %>
+  </div>
+  <div class="row">
+    <%= f.text_area :context, class: "comment-context m-2", placeholder: "書き込む内容"%>
+  </div>
+  <% end %>
+</div>
