@@ -1,6 +1,6 @@
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/59280290/84106862-35d13080-aa57-11ea-9a97-ee507bf2673e.gif">
+<img src="https://user-images.githubusercontent.com/59280290/84106862-35d13080-aa57-11ea-9a97-ee507bf2673e.gif" height="200px;" width="700px;" >
 </p>
 
 <h2 align="center">Bulltien Board</h2>
