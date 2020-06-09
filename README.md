@@ -1,6 +1,6 @@
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/59280290/84106862-35d13080-aa57-11ea-9a97-ee507bf2673e.gif" height="200px;" width="700px;" >
+<img src="https://user-images.githubusercontent.com/59280290/84106862-35d13080-aa57-11ea-9a97-ee507bf2673e.gif" height="300px;" width="700px;" >
 </p>
 
 <h2 align="center">Bulltien Board</h2>
@@ -18,11 +18,13 @@
 <p align="center">
     <a href="https://github.com/rspec/rspec-rails"><img src="https://user-images.githubusercontent.com/59280290/80302256-e22ac080-87e3-11ea-9355-1d703e345f02.png" height="80px;" /></a></p>
 
-<p>テスト実行は以下のコードを実行してください</p>
+<p>テストは以下のコードを実行してください</p>
 
 ```
 bundle exec rspec -f d
 ```
+ <br>
+
 
 
 ## :mortar_board: Overview
@@ -48,8 +50,7 @@ bundle exec rspec -f d
 
 ### 2.掲示板について
 対応するカテゴリーを選択して、スレッドの投稿ができます。スレッドでは、レスを書き込むことができます。また、スレッド一覧画面でスレッド、及びレスの検索ができます。
-
- <br><br>
+ <br>
 
 ## 📦 Features
 
@@ -57,13 +58,14 @@ bundle exec rspec -f d
 
 <p align="center">
 <img src ="https://user-images.githubusercontent.com/59280290/84106641-ab88cc80-aa56-11ea-9764-00fc97ec6b00.png" height="550px">
-<br> <br>
+<br>
 
 ## :computer: Version
 setup  
 Ruby: 2.6.3  
 Rails 6.0.2.2  
 Bundler version 2.1.4 
+ <br>
 
 ## 👀 Author
 
