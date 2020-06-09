@@ -61,3 +61,4 @@ gem 'ransack'
 gem 'rails-i18n'
 gem 'bootstrap', ">= 4.3.1"
 gem 'jquery-rails'
+
