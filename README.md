@@ -13,9 +13,14 @@
 <a>　</a>
   <a href="https://www.postgresql.org/"><img src="https://user-images.githubusercontent.com/59280290/84106051-0de0cd80-aa55-11ea-8085-76fa972f0753.png" height="45px;" /></a>
 
+
 <h3 align="center">Test (backend)</h3>
 <p align="center">
     <a href="https://github.com/rspec/rspec-rails"><img src="https://user-images.githubusercontent.com/59280290/80302256-e22ac080-87e3-11ea-9355-1d703e345f02.png" height="80px;" /></a></p>
+
+<p>テスト実行は以下のコードを実行してください</p>
+```bundle exec rspec -f d```
+
 
 ## :mortar_board: Overview
 5chをモチーフにしたWeb掲示板アプリケーション
