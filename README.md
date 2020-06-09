@@ -40,7 +40,8 @@ bundle exec rspec -f d
 
 ## :pencil: App URL
 
-**https://** 
+**https://whispering-hollows-43631.herokuapp.com/** 
+<p>テストユーザー：email:test@email.com/password:aaaaaa</p>
 <br>
 
 ## 💬 Usage
