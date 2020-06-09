@@ -19,7 +19,7 @@
 
 ## :mortar_board: Overview
 5chをモチーフにしたWeb掲示板アプリケーション
-仕様書は[こちら]()
+仕様書は[こちら](https://docs.google.com/document/d/1hhXJXhHrJOeRYG2SFrIbUb6KxCXQgsRFrSd-XYIT3-0/edit?usp=sharing)
 
 ## :pencil2: Description
 ・認証機能 
