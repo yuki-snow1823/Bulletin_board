@@ -62,6 +62,8 @@ gem 'ransack'
 gem 'rails-i18n'
 gem 'bootstrap', ">= 4.3.1"
 gem 'jquery-rails'
+gem 'rubocop'
+gem 'rubocop-rails'
 
 group :production do
   gem 'pg'
