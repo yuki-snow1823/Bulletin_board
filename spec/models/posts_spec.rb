@@ -26,7 +26,7 @@ RSpec.describe Post, type: :model do
         expect(@post).not_to be_valid 
       end
 
-      it "内容に禁止ワードを含んでいると無効" do
+      it "contextに禁止ワードを含んでいると無効" do
         @post.context = "死ね"
         expect(@post).not_to be_valid 
       end
